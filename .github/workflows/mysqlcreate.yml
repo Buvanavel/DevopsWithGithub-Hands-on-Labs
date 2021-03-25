@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v1
     - uses: azure/login@v1
       with:
-        creds: ${{ secrets.mydeployment }}
+        creds: ${{ secrets.MYDEPLOYMENT }}
 
 # Provision a Azure MYSQL Database on Azure
     - name: Azure MYSQL Server creation
@@ -31,7 +31,7 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az group create --name ${{ env.AZURE_RESOURCE_GROUP }} --location ${{ env.AZURE_LOCATION }}
-          az mysql server create --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --name ${{ env.AZURE_MYSQL_SERVERNAME }} --location ${{ env.AZURE_LOCATION }} --admin-user ${{ secrets.myadmin }} --admin-password ${{ secrets.mypass }} --sku-name B_Gen5_2=
+          az mysql server create --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --name ${{ env.AZURE_MYSQL_SERVERNAME }} --location ${{ env.AZURE_LOCATION }} --admin-user ${{ secrets.MYADMIN }} --admin-password ${{ secrets.MYPASS }} --sku-name B_Gen5_2=
           az mysql server firewall-rule create --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --server ${{ env.AZURE_MYSQL_SERVERNAME }} --name AllowAzure --start-ip-address ${{ env.AZURE_MYSQLFIREWALL_IP }} --end-ip-address ${{ env.AZURE_MYSQLFIREWALL_IP }}
           az mysql db create --name ${{ env.AZURE_MYSQL_DATABASE }} --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --server-name ${{ env.AZURE_MYSQL_SERVERNAME }}
  
