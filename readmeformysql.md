@@ -1,1 +1,1 @@
-Creation of mysql database test1
+Creation of mysql database test2
