@@ -5,7 +5,7 @@ on:
     branches:
       - AzureMYSQLDatabase
     paths:
-    - 'readmeformysql.md' 
+    - 'buvanreadmeformysql.md' 
 
 env:
   AZURE_RESOURCE_GROUP: buvanmysqldb               # set this to your Azure Resource group's name  
